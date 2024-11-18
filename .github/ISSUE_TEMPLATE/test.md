@@ -1,3 +1,11 @@
+---
+name: "User Access Check"
+about: "Track and document the user access check"
+title: "[Access-Review] [MONTH]/[YEAR]"
+labels: "access-review"
+assignees: "mholetzko"
+---
+
 ### Process
 
 * @AnjaGer provides the current google workspace user list (SSO provider)
