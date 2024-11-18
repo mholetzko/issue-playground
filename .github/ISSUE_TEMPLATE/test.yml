@@ -1,43 +1,52 @@
-name: Semi Anually User Access Rights Review
-description: Track and document the quarterly user access rights review process
-labels: "soc, cg:access-control"
+name: Semi-Annual User Access Rights Review
+description: Track and document the semi-annual user access rights review process
+labels: ["soc", "cg:access-control"]
 assignees: AnjaGer
 title: "[Access-Review]: User Access Rights Review - [MONTH]/[YEAR]"
 body:
-  - type: markdown
-    attributes:
-      value: |
-        ## Review Overview & Process
-        User access rights must be reviewed at semi-annually to ensure they remain appropriate.
-        This issue tracks the semi-annually effort of reviewing the access rights of tool specific accounts/members and initiating any necessary changes.
-        
-        - @AnjaGer provides the current google workspace user list (SSO provider)
-        - @AnjaGer checks this list for consistency and if there is no finding shares it below       
-        - Review the users/accounts in the tool of your responsibility 
-        - **If there are no findings**
-           - check the box below
-        - **If there ARE findings**
-           - please write a comment with the changes/additions/removals you have done to this issue
-           - **then only check the box below**
-        
-
   - type: textarea
     attributes:
       label: Enter Review Input
       value: |
-       > User List from Google Workspace: <ADD GOOGLE DRIVE LINK>
+        > User List from Google Workspace:
+        <!-- Please paste the current Google Workspace user list here -->
+
+  - type: checkboxes
+    attributes:
+      label: Review Tasks (Tools)
+      description: Please check the boxes once the review is completed. If there are findings, add a comment before checking the box.
+      options:
+        - label: Google Workspace (@AnjaGer)
+        - label: Slack (@AnjaGer)
+        - label: Github (@AnjaGer)
+        - label: Carta (@AnjaGer / @sandeep-chopra)
+        - label: MS Office (@sandeep-chopra)
+        - label: Zoom (@sandeep-chopra)
+        - label: Dropbox (@sandeep-chopra)
+        - label: Firma (@dcookdesign)
+        - label: "Grafana, AWS Console (@everestsystems/infra - only SSO)"
 
   - type: markdown
-    id: review-tasks
     attributes:
       value: |
-        ## Review Tasks (Tools) 
-        - [ ] Google Workspace @AnjaGer
-        - [ ] Slack @AnjaGer
-        - [ ] Github @AnjaGer
-        - [ ] Carta @AnjaGer / @sandeep-chopra
-        - [ ] MS Office @sandeep-chopra
-        - [ ] Zoom @sandeep-chopra
-        - [ ] Dropbox @sandeep-chopra
-        - [ ] Firma @dcookdesign
-        - [ ] Grafana, AWS Console @everestsystems/infra (only SSO) 
+        ## Review Overview & Process
+        
+        User access rights must be reviewed semi-annually to ensure they remain appropriate. This issue tracks the semi-annual effort of reviewing the access rights of tool-specific accounts/members and initiating any necessary changes.
+        
+        ### Process Steps:
+        1. @AnjaGer provides the current Google Workspace user list (SSO provider)
+        2. @AnjaGer checks this list for consistency and shares the results below
+        3. Assigned reviewers check users/accounts in their respective tools
+        
+        ### Review Response Guidelines:
+        - **If there are NO findings:**
+          - Simply check the box for your tool above
+        
+        - **If there ARE findings:**
+          1. Write a comment detailing the changes/additions/removals made
+          2. Then check the box for your tool above
+        
+        ### Important Notes:
+        - All changes must be documented in comments
+        - Each tool must be reviewed by its assigned owner
+        - SSO-based access should be checked for consistency
