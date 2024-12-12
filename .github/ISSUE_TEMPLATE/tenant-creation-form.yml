@@ -1,7 +1,7 @@
 ---
-name: Tenant Creation Request Form
-description: Create a new customer tenant
-title: "[Tenant Creation Request] <Customer Name>"
+name: Tenant Request Form
+description: Request creation of a new tenant
+title: "[Tenant Request] <Customer Name>"
 labels: ["tenant-creation"]
 assignees: ["fspaniol"]
 body:
@@ -10,12 +10,21 @@ body:
       value: "### Request"
 
   - type: dropdown
-    id: purpose
+    id: target
     attributes:
-      label: Purpose
+      label: Target
       options:
         - Customer
         - Internal
+    validations:
+      required: true
+
+  - type: textarea
+    id: detailed-purpose
+    attributes:
+      label: Detailed Purpose
+      description: Please provide a detailed explanation of how this tenant will be used
+      placeholder: "Example: This tenant will be used for..."
     validations:
       required: true
 
@@ -60,7 +69,7 @@ body:
     attributes:
       value: |
         ### Completion Checklist
-        *THIS IS ONLY RELEVANT IF THIS IS FOR TENANTS FOR CUSTOMERS (Purpose Customer)*
+        *THIS IS ONLY RELEVANT IF THIS IS FOR TENANTS FOR CUSTOMERS (Target Customer)*
 
   - type: checkboxes
     id: completion-checklist
