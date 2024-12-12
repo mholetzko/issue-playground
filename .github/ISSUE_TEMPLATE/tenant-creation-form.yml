@@ -1,5 +1,5 @@
 ---
-name: Tenant Creation Request
+name: Tenant Creation Request Form
 description: Create a new customer tenant
 title: "[Tenant Creation Request] <Customer Name>"
 labels: ["tenant-creation"]
