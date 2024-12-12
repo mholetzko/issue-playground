@@ -1,0 +1,68 @@
+---
+name: Tenant Termination Request
+description: Request to terminate a tenant and handle data cleanup
+title: "[Tenant Termination] <Customer Name>"
+labels: ["tenant-termination"]
+assignees: ["fspaniol"]
+body:
+  - type: markdown
+    attributes:
+      value: "### Termination Request"
+
+  - type: input
+    id: tenant-name
+    attributes:
+      label: Tenant Name
+      description: Name of the tenant to be terminated
+    validations:
+      required: true
+
+  - type: dropdown
+    id: data-retention
+    attributes:
+      label: Data Retention Period
+      description: How long should we retain the data after termination?
+      options:
+        - Immediate deletion
+        - 30 days
+        - 60 days
+        - 90 days
+        - Custom (specify in comments)
+    validations:
+      required: true
+
+  - type: markdown
+    attributes:
+      value: |
+        ### Data Privacy & Cleanup Checklist
+        **Note: This checklist can be filled out after the issue is created - it's meant to track the progress of the termination process.**
+
+  - type: checkboxes
+    id: termination-checklist
+    attributes:
+      label: Cleanup Checklist
+      description: Ensure all customer data is properly handled
+      options:
+        - label: Removed Google Drive folder and all contained customer data
+        - label: Removed GitHub issues and related documentation
+        - label: Removed tenant configuration from GitOps repository
+        - label: Deleted Slack channel and archived relevant communications
+        - label: Backed up all audit logs
+        - label: Revoked all API keys and access tokens
+        - label: Removed backup snapshots (after retention period)
+        - label: Deleted any saved database credentials
+        - label: Removed DNS entries and certificates
+        - label: Cleared any cached data or CDN content
+        - label: Removed customer from SSO/identity providers
+        - label: Added completion comment with data deletion confirmation to this issue
+        - label: Sent data deletion confirmation email to customer
+        - label: Verified deletion in connected systems (Jira, Confluence, etc.)
+        - label: Verified no personal information remains in email archives
+
+  - type: textarea
+    id: additional-notes
+    attributes:
+      label: Additional Notes
+      description: Add any specific instructions or considerations for this termination
+      placeholder: "Example: Customer requires certificate of data deletion..."
+---
