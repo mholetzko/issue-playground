@@ -1,72 +1,74 @@
-name: Tenant Creation Request Form
+---
+name: Tenant Creation Request
 description: Create a new customer tenant
 title: "[Tenant Creation Request] <Customer Name>"
 labels: ["tenant-creation"]
 assignees: ["fspaniol"]
+body:
+  - type: markdown
+    attributes:
+      value: "### Request"
 
-- type: markdown
-  attributes:
-    value: "### Request"
+  - type: dropdown
+    id: purpose
+    attributes:
+      label: Purpose
+      options:
+        - Customer
+        - Internal
+    validations:
+      required: true
 
-- type: dropdown
-  id: purpose
-  attributes:
-    label: Purpose
-    options:
-      - Customer
-      - Internal
-  validations:
-    required: true
+  - type: dropdown
+    id: code-line
+    attributes:
+      label: Code Line
+      options:
+        - Latest
+        - Release
+    validations:
+      required: true
 
-- type: dropdown
-  id: code-line
-  attributes:
-    label: Code Line
-    options:
-      - Latest
-      - Release
-  validations:
-    required: true
+  - type: dropdown
+    id: landscape
+    attributes:
+      label: Landscape
+      options:
+        - Internal
+        - Playground
+        - Production
+    validations:
+      required: true
 
-- type: dropdown
-  id: landscape
-  attributes:
-    label: Landscape
-    options:
-      - Internal
-      - Playground
-      - Production
-  validations:
-    required: true
+  - type: input
+    id: tenant-name
+    attributes:
+      label: Name
+      description: This will become the tenant name
+    validations:
+      required: true
 
-- type: input
-  id: tenant-name
-  attributes:
-    label: Name
-    description: This will become the tenant name
-  validations:
-    required: true
+  - type: input
+    id: tenant-owners
+    attributes:
+      label: Tenant Owners
+      description: This will get the initial setup password
+    validations:
+      required: true
 
-- type: input
-  id: tenant-owners
-  attributes:
-    label: Tenant Owners
-    description: This will get the initial setup password
-  validations:
-    required: true
+  - type: markdown
+    attributes:
+      value: |
+        ### Completion Checklist
+        *THIS IS ONLY RELEVANT IF THIS IS FOR TENANTS FOR CUSTOMERS (Purpose Customer)*
 
-- type: markdown
-  attributes:
-    value: |
-      ### Completion Checklist
-      *THIS IS ONLY RELEVANT IF THIS IS FOR TENANTS FOR CUSTOMERS (Purpose Customer)*
-
-- type: checkboxes
-  id: completion-checklist
-  attributes:
-    label: Checklist
-    options:
-      - label: customer<name>-support Slack channel created
-      - label: google-drive folder for customer with limited access created
-      - label: added tenant responsible to the google-sheet - https://docs.google.com/spreadsheets/d/1sgpFix4w5TWz3wpBQPO46_-OB-KJTcOZ0VoCbH-1Rug/edit?gid=0#gid=0
-      - label: access-request template extended by the new tenant/customer
+  - type: checkboxes
+    id: completion-checklist
+    attributes:
+      label: Checklist
+      options:
+        - label: customer<name>-support Slack channel created
+        - label: google-drive folder for customer with limited access created
+        - label: added tenant responsible to the google-sheet - https://docs.google.com/spreadsheets/d/1sgpFix4w5TWz3wpBQPO46_-OB-KJTcOZ0VoCbH-1Rug/edit?gid=0#gid=0
+        - label: access-request template extended by the new tenant/customer
+---
